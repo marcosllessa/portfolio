@@ -16,7 +16,7 @@
             --primary-dark: #564FC9;
             --secondary: #2D3748;
             --dark: #1A202C;
-            --light: #FFFFFF;
+            --light: #FFFFFF; /* Alterado para branco */
             --gray: #E2E8F0;
             --accent: #FF6584;
             --text: #2D3748;
@@ -31,7 +31,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--light);
+            background-color: var(--light); /* Fundo branco */
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
@@ -63,7 +63,7 @@
 
         section {
             padding: 6rem 0;
-            background-color: var(--light);
+            background-color: var(--light); /* Fundo branco para todas as seções */
         }
 
         /* Header animado */
@@ -75,14 +75,14 @@
             z-index: 1000;
             transition: all 0.3s ease;
             padding: 1.5rem 0;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com transparência */
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         header.scrolled {
             padding: 1rem 0;
-            background-color: rgba(255, 255, 255, 0.98);
+            background-color: rgba(255, 255, 255, 0.98); /* Fundo branco mais sólido */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
@@ -172,7 +172,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            background: white;
+            background: white; /* Fundo branco */
         }
 
         .hero::before {
@@ -326,7 +326,7 @@
 
         /* About section */
         .about {
-            background-color: white;
+            background-color: white; /* Fundo branco */
         }
 
         .about-content {
@@ -414,98 +414,15 @@
             left: -15px;
         }
 
-        /* Slider Styles - Comum para todos os sliders */
-        .slider-container {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .slider-track {
-            display: flex;
-            transition: transform 0.5s ease;
-            will-change: transform;
-        }
-
-        .slider-item {
-            min-width: 100%;
-            box-sizing: border-box;
-            padding: 0 15px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .slider-item.animate {
-            animation: fadeInUp 0.8s forwards;
-        }
-
-        .slider-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .slider-dots {
-            display: flex;
-            gap: 10px;
-        }
-
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: var(--gray);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .slider-dot.active {
-            background-color: var(--primary);
-            transform: scale(1.2);
-        }
-
-        .slider-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .slider-arrow.left {
-            left: 20px;
-        }
-
-        .slider-arrow.right {
-            right: 20px;
-        }
-
-        .slider-container:hover .slider-arrow {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .slider-arrow:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        /* Skills section - Agora com slider */
+        /* Skills section */
         .skills {
-            background-color: white;
+            background-color: white; /* Fundo branco */
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
         .skill-category {
@@ -514,8 +431,17 @@
             padding: 2rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
+            opacity: 0;
+            transform: translateY(20px);
         }
+
+        .skill-category.animate {
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .skill-category:nth-child(1) { animation-delay: 0.2s; }
+        .skill-category:nth-child(2) { animation-delay: 0.4s; }
+        .skill-category:nth-child(3) { animation-delay: 0.6s; }
 
         .skill-category:hover {
             transform: translateY(-10px);
@@ -553,23 +479,53 @@
             color: var(--primary);
         }
 
-        /* Experience section - Agora com slider */
+        /* Experience section */
         .experience {
-            background-color: white;
+            background-color: white; /* Fundo branco */
+        }
+
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--primary);
         }
 
         .experience-item {
-            background-color: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
-        .experience-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        .experience-item.animate {
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .experience-item:nth-child(1) { animation-delay: 0.2s; }
+        .experience-item:nth-child(2) { animation-delay: 0.4s; }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+            border: 3px solid var(--primary);
         }
 
         .experience-header {
@@ -611,19 +567,40 @@
             font-weight: 500;
         }
 
-        /* Projects section */
+        /* Projects section - Modificada para slider */
         .projects {
-            background-color: white;
+            background-color: white; /* Fundo branco */
+        }
+
+        .projects-slider {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .projects-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            will-change: transform;
         }
 
         .project-card {
-            background-color: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
         }
+
+        .project-card.animate {
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.2s; }
+        .project-card:nth-child(2) { animation-delay: 0.4s; }
+        .project-card:nth-child(3) { animation-delay: 0.6s; }
 
         .project-card:hover {
             transform: translateY(-10px);
@@ -702,9 +679,71 @@
             margin-right: 0.5rem;
         }
 
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary);
+            transform: scale(1.2);
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .slider-arrow.left {
+            left: 20px;
+        }
+
+        .slider-arrow.right {
+            right: 20px;
+        }
+
+        .projects-slider:hover .slider-arrow {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slider-arrow:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
         /* Contact section */
         .contact {
-            background-color: white;
+            background-color: white; /* Fundo branco */
             text-align: center;
         }
 
@@ -1051,176 +1090,114 @@
         </div>
     </section>
 
-    <!-- Skills Section - Agora com slider -->
+    <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">Habilidades</h2>
-            <div class="slider-container">
-                <div class="slider-arrow left">
-                    <i class="fas fa-chevron-left"></i>
+            <div class="skills-container">
+                <div class="skill-category animate">
+                    <h3><i class="fab fa-python"></i> Desenvolvimento Python</h3>
+                    <ul>
+                        <li>Python avançado para automação e desenvolvimento</li>
+                        <li>Processamento e análise de dados</li>
+                        <li>Integração de sistemas e APIs</li>
+                        <li>Scripting para automação de tarefas</li>
+                    </ul>
                 </div>
-                <div class="slider-arrow right">
-                    <i class="fas fa-chevron-right"></i>
+                <div class="skill-category animate">
+                    <h3><i class="fas fa-chart-line"></i> Ciência de Dados</h3>
+                    <ul>
+                        <li>Pandas, NumPy para manipulação de dados</li>
+                        <li>Scikit-learn, TensorFlow para machine learning</li>
+                        <li>Análise estatística e modelagem preditiva</li>
+                        <li>Visualização com Matplotlib, Seaborn</li>
+                    </ul>
                 </div>
-                
-                <div class="slider-track">
-                    <div class="slider-item animate">
-                        <div class="skill-category">
-                            <h3><i class="fab fa-python"></i> Desenvolvimento Python</h3>
-                            <ul>
-                                <li>Python avançado para automação e desenvolvimento</li>
-                                <li>Processamento e análise de dados</li>
-                                <li>Integração de sistemas e APIs</li>
-                                <li>Scripting para automação de tarefas</li>
-                                <li>Desenvolvimento de aplicações web com Flask/Django</li>
-                                <li>Programação orientada a objetos</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="slider-item animate">
-                        <div class="skill-category">
-                            <h3><i class="fas fa-chart-line"></i> Ciência de Dados</h3>
-                            <ul>
-                                <li>Pandas, NumPy para manipulação de dados</li>
-                                <li>Scikit-learn, TensorFlow para machine learning</li>
-                                <li>Análise estatística e modelagem preditiva</li>
-                                <li>Visualização com Matplotlib, Seaborn</li>
-                                <li>Processamento de linguagem natural (NLP)</li>
-                                <li>Análise exploratória de dados</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="slider-item animate">
-                        <div class="skill-category">
-                            <h3><i class="fas fa-bug"></i> Testes de Software</h3>
-                            <ul>
-                                <li>10+ anos em garantia de qualidade</li>
-                                <li>Automação de testes com Selenium, PyTest, Robot Framework</li>
-                                <li>Testes manuais e casos de teste</li>
-                                <li>Controle de qualidade de software</li>
-                                <li>Integração contínua e testes</li>
-                                <li>Testes de desempenho e carga</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="slider-nav">
-                    <div class="slider-dots">
-                        <!-- Os dots serão adicionados dinamicamente via JavaScript -->
-                    </div>
+                <div class="skill-category animate">
+                    <h3><i class="fas fa-bug"></i> Testes de Software</h3>
+                    <ul>
+                        <li>10+ anos em garantia de qualidade</li>
+                        <li>Automação de testes com Selenium, PyTest, Robot Framework</li>
+                        <li>Testes manuais e casos de teste</li>
+                        <li>Controle de qualidade de software</li>
+                        <li>Integração contínua e testes</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section - Agora com slider -->
+    <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title">Experiência</h2>
-            <div class="slider-container">
-                <div class="slider-arrow left">
-                    <i class="fas fa-chevron-left"></i>
-                </div>
-                <div class="slider-arrow right">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-                
-                <div class="slider-track">
-                    <div class="slider-item animate">
-                        <div class="experience-item">
-                            <div class="experience-header">
-                                <h3 class="experience-title">Desenvolvedor Python</h3>
-                                <span class="experience-period">2020 - Presente</span>
-                            </div>
-                            <p class="experience-description">Projetos em IA, Automação e Análise de Dados</p>
-                            <ul class="experience-description">
-                                <li>Desenvolvimento de soluções de Inteligência Artificial para detecção de placas de veículos</li>
-                                <li>Análise de dados de produtos GTIN na cadeia de distribuição e fiscalização</li>
-                                <li>Automação de processos em setores fiscal, rodoviário e mobilidade</li>
-                                <li>Implementação de algoritmos de visão computacional e processamento de imagens</li>
-                                <li>Integração com sistemas legados e bancos de dados</li>
-                                <li>Otimização de performance de algoritmos</li>
-                            </ul>
-                            <div class="experience-skills">
-                                <span class="experience-skill">Python</span>
-                                <span class="experience-skill">TensorFlow</span>
-                                <span class="experience-skill">OpenCV</span>
-                                <span class="experience-skill">Pandas</span>
-                                <span class="experience-skill">SQL</span>
-                            </div>
-                        </div>
+            <div class="experience-timeline">
+                <div class="experience-item animate">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Desenvolvedor Python</h3>
                     </div>
-                    
-                    <div class="slider-item animate">
-                        <div class="experience-item">
-                            <div class="experience-header">
-                                <h3 class="experience-title">Especialista em Automação (n8n)</h3>
-                                <span class="experience-period">2018 - 2020</span>
-                            </div>
-                            <p class="experience-description">Automação de workflows e integração de sistemas</p>
-                            <ul class="experience-description">
-                                <li>Desenvolvimento de fluxos automatizados para otimizar processos manuais e repetitivos</li>
-                                <li>Integração de APIs (REST, Webhooks) entre sistemas como CRM, bancos de dados e ferramentas de comunicação</li>
-                                <li>Automação de tarefas como envio de relatórios, notificações e sincronização de dados</li>
-                                <li>Implantação de soluções low-code para reduzir tempo operacional e aumentar eficiência</li>
-                                <li>Monitoramento e manutenção de workflows em produção</li>
-                                <li>Treinamento de equipes na utilização das automações</li>
-                            </ul>
-                            <div class="experience-skills">
-                                <span class="experience-skill">n8n</span>
-                                <span class="experience-skill">Low-Code</span>
-                                <span class="experience-skill">APIs</span>
-                                <span class="experience-skill">Webhooks</span>
-                                <span class="experience-skill">JavaScript</span>
-                                <span class="experience-skill">Zapier</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="slider-item animate">
-                        <div class="experience-item">
-                            <div class="experience-header">
-                                <h3 class="experience-title">Analista de Testes de Software</h3>
-                                <span class="experience-period">2010 - 2018</span>
-                            </div>
-                            <p class="experience-description">Garantia de qualidade em aplicações web e mobile</p>
-                            <ul class="experience-description">
-                                <li>Planejamento, execução e automação de testes</li>
-                                <li>Garantia de qualidade em softwares entregues</li>
-                                <li>Identificação e correção de bugs em diferentes ambientes</li>
-                                <li>Elaboração de planos de teste e documentação técnica</li>
-                                <li>Coordenação de equipes de teste</li>
-                                <li>Implementação de estratégias de teste</li>
-                            </ul>
-                            <div class="experience-skills">
-                                <span class="experience-skill">Selenium</span>
-                                <span class="experience-skill">PyTest</span>
-                                <span class="experience-skill">QA</span>
-                                <span class="experience-skill">CI/CD</span>
-                                <span class="experience-skill">JIRA</span>
-                                <span class="experience-skill">TestRail</span>
-                            </div>
-                        </div>
+                    <p class="experience-description">Projetos em IA, Automação e Análise de Dados</p>
+                    <ul class="experience-description">
+                        <li>Desenvolvimento de soluções de Inteligência Artificial para detecção de placas de veículos</li>
+                        <li>Análise de dados de produtos GTIN na cadeia de distribuição e fiscalização</li>
+                        <li>Automação de processos em setores fiscal, rodoviário e mobilidade</li>
+                        <li>Implementação de algoritmos de visão computacional e processamento de imagens</li>
+                    </ul>
+                    <div class="experience-skills">
+                        <span class="experience-skill">Python</span>
+                        <span class="experience-skill">TensorFlow</span>
+                        <span class="experience-skill">OpenCV</span>
+                        <span class="experience-skill">Pandas</span>
                     </div>
                 </div>
                 
-                <div class="slider-nav">
-                    <div class="slider-dots">
-                        <!-- Os dots serão adicionados dinamicamente via JavaScript -->
+                <div class="experience-item animate">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Especialista em Automação (n8n)</h3>
+                    </div>
+                    <p class="experience-description">Automação de workflows e integração de sistemas</p>
+                    <ul class="experience-description">
+                        <li>Desenvolvimento de fluxos automatizados para otimizar processos manuais e repetitivos</li>
+                        <li>Integração de APIs (REST, Webhooks) entre sistemas como CRM, bancos de dados e ferramentas de comunicação</li>
+                        <li>Automação de tarefas como envio de relatórios, notificações e sincronização de dados</li>
+                        <li>Implantação de soluções low-code para reduzir tempo operacional e aumentar eficiência</li>
+                        <li>Monitoramento e manutenção de workflows em produção</li>
+                    </ul>
+                    <div class="experience-skills">
+                        <span class="experience-skill">n8n</span>
+                        <span class="experience-skill">Low-Code</span>
+                        <span class="experience-skill">APIs</span>
+                        <span class="experience-skill">Webhooks</span>
+                        <span class="experience-skill">JavaScript</span>
+                    </div>
+                </div>
+                
+                <div class="experience-item animate">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Analista de Testes de Software</h3>
+                    </div>
+                    <ul class="experience-description">
+                        <li>Planejamento, execução e automação de testes</li>
+                        <li>Garantia de qualidade em softwares entregues</li>
+                        <li>Identificação e correção de bugs em diferentes ambientes</li>
+                        <li>Elaboração de planos de teste e documentação técnica</li>
+                    </ul>
+                    <div class="experience-skills">
+                        <span class="experience-skill">Selenium</span>
+                        <span class="experience-skill">PyTest</span>
+                        <span class="experience-skill">QA</span>
+                        <span class="experience-skill">CI/CD</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section - Modificada para slider -->
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">Projetos</h2>
-            <div class="slider-container">
+            <div class="projects-slider">
                 <div class="slider-arrow left">
                     <i class="fas fa-chevron-left"></i>
                 </div>
@@ -1228,70 +1205,61 @@
                     <i class="fas fa-chevron-right"></i>
                 </div>
                 
-                <div class="slider-track">
-                    <div class="slider-item animate">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="images/placas.png" alt="Detecção de Placas">
+                <div class="projects-track">
+                    <div class="project-card animate">
+                        <div class="project-image">
+                            <img src="images/placas.png" alt="Detecção de Placas">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Detecção de Placas de Veículos com IA</h3>
+                            <p class="project-description">Sistema de reconhecimento automático de placas utilizando redes neurais convolucionais para fiscalização automatizada.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">TensorFlow</span>
+                                <span class="tech-tag">OpenCV</span>
                             </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Detecção de Placas de Veículos com IA</h3>
-                                <p class="project-description">Sistema de reconhecimento automático de placas utilizando redes neurais convolucionais para fiscalização automatizada.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">TensorFlow</span>
-                                    <span class="tech-tag">OpenCV</span>
-                                    <span class="tech-tag">Flask</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
-                                </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="slider-item animate">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="images/gtin.jpg" alt="Análise de Dados">
+                    <div class="project-card animate">
+                        <div class="project-image">
+                            <img src="images/gtin.jpg" alt="Análise de Dados">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Análise de Dados GTIN</h3>
+                            <p class="project-description">Plataforma para rastreamento e análise de produtos na cadeia de distribuição e fiscalização.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">PostgreSQL</span>
                             </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Análise de Dados GTIN</h3>
-                                <p class="project-description">Plataforma para rastreamento e análise de produtos na cadeia de distribuição e fiscalização.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">Pandas</span>
-                                    <span class="tech-tag">PostgreSQL</span>
-                                    <span class="tech-tag">Dash</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
-                                </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="slider-item animate">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="images/TesteDeSoftware.png" alt="Automação de Testes">
+                    <div class="project-card animate">
+                        <div class="project-image">
+                            <img src="images/TesteDeSoftware.png" alt="Automação de Testes">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Framework de Automação de Testes</h3>
+                            <p class="project-description">Solução personalizada para automação de testes em aplicações web, reduzindo tempo de testes.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Selenium</span>
+                                <span class="tech-tag">PyTest</span>
+                                <span class="tech-tag">CI/CD</span>
                             </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Framework de Automação de Testes</h3>
-                                <p class="project-description">Solução personalizada para automação de testes em aplicações web, reduzindo tempo de testes.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">Selenium</span>
-                                    <span class="tech-tag">PyTest</span>
-                                    <span class="tech-tag">CI/CD</span>
-                                    <span class="tech-tag">Docker</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
-                                    <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
-                                </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
                             </div>
                         </div>
                     </div>
@@ -1387,7 +1355,7 @@
         
         // Animação ao rolar a página
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.section-title, .about-text p, .slider-item, .project-card, .contact p, .contact-email, .social-link');
+            const elements = document.querySelectorAll('.section-title, .about-text p, .skill-category, .experience-item, .project-card, .contact p, .contact-email, .social-link');
             const windowHeight = window.innerHeight;
             
             elements.forEach(element => {
@@ -1423,20 +1391,19 @@
         // Iniciar efeito de digitação após um pequeno delay
         setTimeout(typingEffect, 500);
 
-        // Função para inicializar sliders
-        function initSlider(sliderClass) {
-            const container = document.querySelector(`${sliderClass} .slider-container`);
-            const track = document.querySelector(`${sliderClass} .slider-track`);
-            const items = document.querySelectorAll(`${sliderClass} .slider-item`);
-            const dotsContainer = document.querySelector(`${sliderClass} .slider-dots`);
-            const prevBtn = document.querySelector(`${sliderClass} .slider-arrow.left`);
-            const nextBtn = document.querySelector(`${sliderClass} .slider-arrow.right`);
+        // Slider de Projetos
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.projects-track');
+            const cards = document.querySelectorAll('.project-card');
+            const dotsContainer = document.querySelector('.slider-dots');
+            const prevBtn = document.querySelector('.slider-arrow.left');
+            const nextBtn = document.querySelector('.slider-arrow.right');
             
             let currentIndex = 0;
-            const itemCount = items.length;
+            const cardCount = cards.length;
             
             // Criar dots de navegação
-            items.forEach((_, index) => {
+            cards.forEach((_, index) => {
                 const dot = document.createElement('div');
                 dot.classList.add('slider-dot');
                 if (index === 0) dot.classList.add('active');
@@ -1444,7 +1411,7 @@
                 dotsContainer.appendChild(dot);
             });
             
-            const dots = document.querySelectorAll(`${sliderClass} .slider-dot`);
+            const dots = document.querySelectorAll('.slider-dot');
             
             // Função para atualizar o slider
             function updateSlider() {
@@ -1463,12 +1430,12 @@
             }
             
             function nextSlide() {
-                currentIndex = (currentIndex + 1) % itemCount;
+                currentIndex = (currentIndex + 1) % cardCount;
                 updateSlider();
             }
             
             function prevSlide() {
-                currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+                currentIndex = (currentIndex - 1 + cardCount) % cardCount;
                 updateSlider();
             }
             
@@ -1480,8 +1447,8 @@
             let autoplay = setInterval(nextSlide, 5000);
             
             // Pausar autoplay quando interagir
-            container.addEventListener('mouseenter', () => clearInterval(autoplay));
-            container.addEventListener('mouseleave', () => {
+            track.addEventListener('mouseenter', () => clearInterval(autoplay));
+            track.addEventListener('mouseleave', () => {
                 autoplay = setInterval(nextSlide, 5000);
             });
             
@@ -1489,12 +1456,12 @@
             let touchStartX = 0;
             let touchEndX = 0;
             
-            container.addEventListener('touchstart', (e) => {
+            track.addEventListener('touchstart', (e) => {
                 touchStartX = e.changedTouches[0].screenX;
                 clearInterval(autoplay);
             }, {passive: true});
             
-            container.addEventListener('touchend', (e) => {
+            track.addEventListener('touchend', (e) => {
                 touchEndX = e.changedTouches[0].screenX;
                 handleSwipe();
                 autoplay = setInterval(nextSlide, 5000);
@@ -1505,13 +1472,6 @@
                 if (difference > 50) nextSlide(); // Swipe para esquerda
                 if (difference < -50) prevSlide(); // Swipe para direita
             }
-        }
-
-        // Inicializar todos os sliders quando o DOM estiver carregado
-        document.addEventListener('DOMContentLoaded', function() {
-            initSlider('.skills');
-            initSlider('.experience');
-            initSlider('.projects');
         });
     </script>
 </body>
